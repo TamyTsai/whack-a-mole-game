@@ -24,6 +24,7 @@ clock = pygame.time.Clock() # 創建此頻率鐘物件 可對時間做管理與�
 mallet = pygame.image.load(os.path.join("img", "mallet.png")) # 一般槌子
 down_mallet = pygame.image.load(os.path.join("img", "down-mallet.png")) # 打下去的槌子
 mole = pygame.image.load(os.path.join("img", "mole.png")) # 地鼠
+bad_mole = pygame.image.load(os.path.join("img", "bad-mole.png")) # 壞地鼠
 mole_mini = pygame.transform.scale(mole, (25, 19)) # 小地鼠(視窗左上圖示)
 pygame.display.set_icon(mole_mini) # 設定視窗左上圖示
 grass = pygame.image.load(os.path.join("img", "grass.png")) # 草地
@@ -79,7 +80,7 @@ def isInRect(p, rect): # (點座標, 矩形左上角座標 與 長寬) # 參數�
 def whack():
     global score  # 取用 遊戲分數 資訊
     mx, my =  pygame.mouse.get_pos() # 將滑鼠目前的x, y座標 指定給 變數 mx, my
-    width, height = mole.get_size() # 將老鼠圖片的寬、高 指定給 變數 width, height
+    width, height = mole.get_size() # 將地鼠圖片的寬、高 指定給 變數 width, height
     if isInRect((mx,my),(x, y, width, height)): # 如果滑鼠 目前的x, y座標 在 地鼠矩形範圍內
     # 傳入 兩個 分別存有 點座標(滑鼠位置) 與 矩形座標及長寬(地鼠位置及大小) 的 元組 進isInRect(p, rect)函式
         score += 1 # 遊戲分數就加1分
