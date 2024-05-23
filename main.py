@@ -24,6 +24,8 @@ clock = pygame.time.Clock() # 創建此頻率鐘物件 可對時間做管理與�
 mallet = pygame.image.load(os.path.join("img", "mallet.png")) # 一般槌子
 down_mallet = pygame.image.load(os.path.join("img", "down-mallet.png")) # 打下去的槌子
 mole = pygame.image.load(os.path.join("img", "mole.png")) # 地鼠
+mole_mini = pygame.transform.scale(mole, (25, 19)) # 小地鼠(視窗左上圖示)
+pygame.display.set_icon(mole_mini) # 設定視窗左上圖示
 grass = pygame.image.load(os.path.join("img", "grass.png")) # 草地
 
 pygame.mouse.set_visible(False) # 隱藏滑鼠座標顯示(因為要讓 鼠標與槌子 融為一體)
