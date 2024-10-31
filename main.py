@@ -24,6 +24,7 @@ clock = pygame.time.Clock() # 創建此頻率鐘物件 可對時間做管理與�
 mallet = pygame.image.load(os.path.join("img", "mallet.png")) # 一般槌子
 down_mallet = pygame.image.load(os.path.join("img", "down-mallet.png")) # 打下去的槌子
 mole = pygame.image.load(os.path.join("img", "mole.png")) # 地鼠
+bad_mole = pygame.image.load(os.path.join("img", "bad-mole.png")) # 壞地鼠
 mole_mini = pygame.transform.scale(mole, (25, 19)) # 小地鼠(視窗左上圖示)
 pygame.display.set_icon(mole_mini) # 設定視窗左上圖示
 grass = pygame.image.load(os.path.join("img", "grass.png")) # 草地
@@ -34,7 +35,7 @@ pygame.font.init() # 初始化文字模組
 # 初始畫面
 def welcome_screen():
     screen.blit(grass,(0,0)) # 在畫面(screen)畫出(blit)草的圖片(grass) 圖片左上角座標為(0,0)
-    font = pygame.font.SysFont('corbel',48) # 設定字體
+    font = pygame.font.SysFont('corbel',40) # 設定字體
     text = font.render("Press ENTER to start", False, WHITE) # 將文字物件 渲染出來 #(文字內容, 字體是否反鋸齒, 文字顏色)
     screen.blit(text, ((WIDTH - text.get_width())/2, 185)) # 在畫面畫出剛剛渲染出來的文字
     mallet_position = mallet.get_rect() # 將槌子以矩形框起來(取得 槌子 的矩形範圍)
@@ -79,7 +80,7 @@ def isInRect(p, rect): # (點座標, 矩形左上角座標 與 長寬) # 參數�
 def whack():
     global score  # 取用 遊戲分數 資訊
     mx, my =  pygame.mouse.get_pos() # 將滑鼠目前的x, y座標 指定給 變數 mx, my
-    width, height = mole.get_size() # 將老鼠圖片的寬、高 指定給 變數 width, height
+    width, height = mole.get_size() # 將地鼠圖片的寬、高 指定給 變數 width, height
     if isInRect((mx,my),(x, y, width, height)): # 如果滑鼠 目前的x, y座標 在 地鼠矩形範圍內
     # 傳入 兩個 分別存有 點座標(滑鼠位置) 與 矩形座標及長寬(地鼠位置及大小) 的 元組 進isInRect(p, rect)函式
         score += 1 # 遊戲分數就加1分
@@ -90,17 +91,17 @@ def whack():
 def play_screen():
     screen.blit(grass, (0,0)) # 畫草地背景
     font = pygame.font.SysFont('corbel', 30) # 設定字體
-    text_score = font.render(str(score), False, WHITE) # 渲染 分數文字 # 將文字物件 渲染出來 #(文字內容, 字體是否反鋸齒, 文字顏色)
+    text_score = font.render('Score:' + str(score), False, WHITE) # 渲染 分數文字 # 將文字物件 渲染出來 #(文字內容, 字體是否反鋸齒, 文字顏色)
     current = game_time - (time.time() - start_time) # 現在剩餘時間 = 遊戲時間限制(20秒) - (目前時間點 - 遊戲開始的時間點) = 遊戲時間限制(20秒) - 遊戲開始後已經過時間
     if current <= 0: # 若現在剩下的時間<=0
         end() # 就結束遊戲
-    text_time = font.render(str(int(current)), False, WHITE) # 渲染 時間文字 
+    text_time = font.render('Time:' + str(int(current)), False, WHITE) # 渲染 時間文字 
     if pygame.mouse.get_pressed()[0]: # pygame.mouse.get_pressed()會回傳一整串布林值(代表每個滑鼠按鍵是否被按下的狀態) # 列表中第一筆[0]資料為滑鼠左鍵是否被按下 # 若滑鼠左鍵被按下
         screen.blit(down_mallet, pygame.mouse.get_pos()) # 就在畫面(screen)畫出(blit)打下去的槌子圖片(down_mallet) 定位在滑鼠所在位置(pygame.mouse.get_pos())
     else:  # 如果沒有按下滑鼠左鍵
         screen.blit(mallet, pygame.mouse.get_pos()) # 就在畫面(screen)畫出(blit)一般槌子圖片(mallet) 定位在滑鼠所在位置(pygame.mouse.get_pos())
     screen.blit(text_score, (10,0)) # 在畫面(左上角) 畫出 渲染後 分數文字
-    screen.blit(text_time, (370,0)) # 在畫面(右上角) 畫出 渲染後 現在剩餘時間 文字
+    screen.blit(text_time, (300,0)) # 在畫面(右上角) 畫出 渲染後 現在剩餘時間 文字
     screen.blit(mole, (x, y)) # 在畫面 畫出 地鼠圖片
 
 # 結束畫面
