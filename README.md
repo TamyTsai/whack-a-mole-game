@@ -44,9 +44,12 @@
 ![螢幕擷取畫面 2024-05-23 遊戲結束](https://github.com/TamyTsai/whack-a-mole-game/assets/97825677/89645165-57b3-4426-be7f-5bcb703c42ab)
 
 
-## 安裝
+## 安裝與執行
 以下皆為於windows環境運行
 
+<hr>
+
+### 命令列介面執行
 ### 檢查是否有安裝Python，若無，則至官網下載安裝
 ```bash
 py --version
@@ -64,14 +67,27 @@ py -m pip --version
 py -m pip install pygame
 ```
 
-<!-- ### 取得專案
+### 取得專案
 ```bash
 git clone https://github.com/TamyTsai/whack-a-mole-game.git
 ```
+
 ### 移動到專案內
 ```bash
 cd whack-a-mole-game
-``` -->
+```
+
+### 執行專案
+```bash
+python main.py
+```
+
+<hr>
+
+### 圖形化使用者介面執行
+下載專案後，雙擊專案目錄中之main.exe，即可執行程式，開啟遊戲
+![exe檔](https://github.com/user-attachments/assets/392c25ca-5c01-4d28-8537-7791df553783)
+
 
 ## 資料夾及檔案說明
 - img - 遊戲圖片放置處
