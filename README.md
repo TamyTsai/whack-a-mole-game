@@ -77,7 +77,7 @@ cd whack-a-mole-game
 - img - 遊戲圖片放置處
 - main.exe - 打包後的遊戲主程式執行檔
 - main.py - 遊戲Python檔
-- player.ico - 遊戲圖示
+- mole.ico - 遊戲圖示
 
 <!-- ## 專案技術
 - Python v3.12.3
