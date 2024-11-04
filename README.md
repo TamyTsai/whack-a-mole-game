@@ -105,6 +105,12 @@ python main.py
 - 框架：pygame
 - 版本控制：Git
 
+## 使用技術詳細說明
+- 使用pygame模組以簡化製作遊戲之過程，包含簡化加入文字、圖案、聲音等元素，與進行事件處理等過程。
+- 使用Python的標準函式time，以處理時間。
+- 使用Python的標準函式random，以隨機產生地鼠的座標
+- 使用Python的標準函式os，以統一路徑寫法
+
 ## 聯絡作者
 你可以透過email與我聯絡：tamy8677@gmail.com
 
